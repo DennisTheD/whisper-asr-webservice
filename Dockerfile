@@ -28,6 +28,7 @@ RUN poetry install
 RUN /app/.venv/bin/pip install pandas transformers nltk pyannote.audio
 RUN git clone --depth 1 https://github.com/m-bain/whisperX.git \
     && cd whisperX \
+    && git checkout d97cdb7bcf302fb3e1651321a5935f90594e994c \
     && $POETRY_VENV/bin/pip install -e .
 
 EXPOSE 9000

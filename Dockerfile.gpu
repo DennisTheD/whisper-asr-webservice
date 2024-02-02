@@ -40,8 +40,9 @@ RUN /app/.venv/bin/pip install torch torchaudio pandas transformers nltk pyannot
     --index-url https://download.pytorch.org/whl/cu118 \
     --index-url https://pypi.org/simple/
 
-RUN git clone --depth 1 https://github.com/m-bain/whisperX.git \
+RUN git clone https://github.com/m-bain/whisperX.git \
     && cd whisperX \
+    && git checkout d97cdb7bcf302fb3e1651321a5935f90594e994c \
     && $POETRY_VENV/bin/pip install --no-dependencies -e .
 
 EXPOSE 9000
